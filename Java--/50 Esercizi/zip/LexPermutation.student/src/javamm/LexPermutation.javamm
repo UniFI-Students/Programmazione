@@ -1,0 +1,3 @@
+char[] lexPermutation(char[] a, int p) {
+	return null;
+}

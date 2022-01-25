@@ -1,0 +1,28 @@
+/*
+Definire un metodo ricorsivo Java--, chiamato lunghezzaMaxSeq che, 
+dati in input un array a di caratteri (con almeno un elemento) ed 
+un carattere c, restituisca la lunghezza della più lunga sequenza 
+di caratteri c consecutivi in a. 
+Nota bene: una soluzione non ricorsiva è considerata errata, anche 
+se supera i JUnit test.
+*/
+
+int lunghezzaMaxSeq (char[] a, char c) {
+	return lunghezzaMaxSeqRec(a, c, a.length - 1, 0);
+}
+
+int lunghezzaMaxSeqRec(char[] a, char c, int lastAIndex, int prevLength)
+{
+	if (lastAIndex==0)
+		if (a[0]==c) return prevLength + 1;
+		else return prevLength;
+		
+	if (a[lastAIndex]==c) ++prevLength;	
+	else prevLength = 0;
+	return Max(lunghezzaMaxSeqRec(a, c, lastAIndex - 1, prevLength), prevLength);
+}
+
+int Max(int a, int b)
+{
+	return a>b ? a : b;
+}

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: AA21_22_SimPI_1.student
+Bundle-ManifestVersion: 2
+Bundle-Name: AA21_22_SimPI_1.student
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: AA21_22_SimPI_1.student; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: javamm.runtime,
+ org.junit
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-11

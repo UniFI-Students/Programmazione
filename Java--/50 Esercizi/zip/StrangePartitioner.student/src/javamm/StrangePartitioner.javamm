@@ -1,0 +1,3 @@
+boolean strangePartition(int[] a) {
+	return false;
+}

@@ -1,0 +1,3 @@
+int ddl(int[][] m) {
+	return 0;
+}

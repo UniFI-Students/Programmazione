@@ -1,0 +1,3 @@
+boolean armstrong(int n) {
+	return false;
+}

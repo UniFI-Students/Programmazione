@@ -1,0 +1,3 @@
+boolean isomorph(int[] s, int[] t) {
+	return false;
+}

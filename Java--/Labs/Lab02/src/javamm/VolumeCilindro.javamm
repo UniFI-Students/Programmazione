@@ -1,0 +1,5 @@
+double h = Input.getDouble("Height: ");
+double r = Input.getDouble("Radius: ");
+double volume = r*r*h*Math.PI;
+
+System.out.println("Volume is " + volume);

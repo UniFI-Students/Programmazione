@@ -1,0 +1,38 @@
+
+boolean testBilanciamento(int[] mioArray) 
+{
+	if (!IsEven(mioArray.length) || mioArray.length == 0) return false;
+	if (mioArray.length == 2) return mioArray[0] == mioArray[1];
+	
+	return testBilanciamentoRecursive(mioArray, 1, CalculateBalanceSum(mioArray, 0));
+}
+
+
+boolean IsEven(int n)
+{
+	return (n&1) == 0;
+}
+
+int CalculateBalanceSum(int[] arr, int i)
+{
+	return arr[i] + arr[arr.length - i - 1];
+}
+
+boolean testBilanciamentoIterative(int[] mioArray)
+{
+	int balanceSum0 = CalculateBalanceSum(mioArray, 0);
+	
+	for (int i=1; i<mioArray.length>>1; ++i)
+		if (CalculateBalanceSum(mioArray, i) != balanceSum0) return false;
+		
+	return true;			
+}
+
+boolean testBilanciamentoRecursive(int[] mioArray, int currIndex, int currBalanceSum)
+{
+	int newBalanceSum = CalculateBalanceSum(mioArray, currIndex);
+	
+	if (currIndex == mioArray.length >> 1) return true;
+	if (newBalanceSum != currBalanceSum) return false;
+	else return testBilanciamentoRecursive(mioArray, currIndex + 1, currBalanceSum);
+}

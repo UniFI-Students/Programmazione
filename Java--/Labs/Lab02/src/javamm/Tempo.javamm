@@ -1,0 +1,8 @@
+double minutesInDay = 60 * 24;
+double minutesInYear = minutesInDay * 365;
+
+int currentMinutes = Input.getInt("Input minutes: ");
+double years = currentMinutes / minutesInYear;
+
+double days = currentMinutes / minutesInDay;
+System.out.println(currentMinutes + " minutes = " + years + " Years = " + days + " days");

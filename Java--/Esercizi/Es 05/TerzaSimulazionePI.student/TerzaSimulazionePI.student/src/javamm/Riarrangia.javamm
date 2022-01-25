@@ -1,0 +1,39 @@
+
+int [] riarrangia (int [] a) {
+
+	int[] res = new int[a.length];
+	int currentResPos = 0;
+	int negativeIndex = 0;
+	int positiveIndex = 0;
+	while(currentResPos < a.length)
+	{
+		negativeIndex = FindFirstNegativeIndex(a, negativeIndex);
+		positiveIndex = FindFirstPositiveIndex(a, positiveIndex);
+		
+		if ((currentResPos&1) == 0)
+		{
+			if (negativeIndex != a.length) res[currentResPos] = a[negativeIndex++];
+			else res[currentResPos] = a[positiveIndex++];	
+		}
+		else 
+		{
+			if (positiveIndex != a.length) res[currentResPos] = a[positiveIndex++];
+			else res[currentResPos] = a[negativeIndex++];		
+		}
+		++currentResPos;
+	}	
+		
+	return res;
+}
+
+int FindFirstNegativeIndex(int[] a, int startPos)
+{
+	while(startPos<a.length && a[startPos] >=0) ++startPos;
+	return startPos;
+}
+
+int FindFirstPositiveIndex(int[] a, int startPos)
+{
+	while(startPos<a.length && a[startPos]<0) ++startPos;
+	return startPos;
+} 

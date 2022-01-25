@@ -1,0 +1,3 @@
+int[] strikeBall(int n, int m) {
+	return null;
+}

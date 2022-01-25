@@ -1,0 +1,72 @@
+int[] GoToDirection(int direction, int[] currPos, int[] matrixLimits)
+{
+	int[] res = new int[] { currPos[0], currPos[1] };
+	switch(direction)
+	{
+		case 0: res[1] = matrixLimits[3]; break;
+		case 1: res[0] = matrixLimits[2]; break;
+		case 2: res[1] = matrixLimits[1]; break;
+		case 3: res[0] = matrixLimits[0]; break;
+	}
+	return res;
+}
+
+void ResizeSpiralMatrixLimits(int direction, int[] matrixLimits)
+{
+	switch(direction)
+	{
+		case 0: ++matrixLimits[0]; break;
+		case 1: --matrixLimits[3]; break;
+		case 2: --matrixLimits[2]; break;
+		case 3: ++matrixLimits[1]; break;
+	}
+}
+
+boolean ArePositionsEqual(int[] pos1, int[] pos2)
+{
+	return pos1 == pos2 ||
+		   pos1[0] == pos2[0] &&
+		   pos1[1] == pos2[1];
+}
+
+int ManhatanDistance(int[] pos1, int[] pos2)
+{
+	return Math.abs(pos2[1] - pos1[1]) + Math.abs(pos2[0] - pos1[0]);	
+}
+
+int[] CalculatePosWithShiftInDirection(int[] pos, int direction, int shift)
+{
+	int[] res = new int[] { pos[0], pos[1] };
+	
+	if (direction<2) res[1 - direction] = res[1 - direction] + shift;
+	else res[3 - direction] = res[3 - direction] - shift;
+	return res;
+}
+
+int[] spiralMatrix(int n, int x) 
+{
+	int currDirection = 0;
+	int[] currPos = new int[] {0, 0};
+	int[] matrixLimits = new int[] {0, 0, n-1, n-1};
+	int currX = 1;
+	boolean foundX = false;
+	int[] nextPos = { n - 1, n - 1 };
+	
+	while (!foundX && currX <= n*n)
+	{
+		nextPos = GoToDirection(currDirection, currPos, matrixLimits);
+		ResizeSpiralMatrixLimits(currDirection, matrixLimits);
+		
+		int nextX = currX + ManhatanDistance(currPos, nextPos);
+		if (currX<=x && x<=nextX)
+			return CalculatePosWithShiftInDirection(currPos, currDirection, x - currX);
+		currDirection = (currDirection + 1) % 4;
+		foundX|=ArePositionsEqual(currPos, nextPos);
+		currPos = nextPos;
+		currX = nextX;
+		
+	}
+	return null;		
+}
+
+

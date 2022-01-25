@@ -1,0 +1,3 @@
+boolean anagrams(int[] s, int[] t) {
+	return false;
+}

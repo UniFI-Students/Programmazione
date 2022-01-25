@@ -1,0 +1,3 @@
+char[] greedyCode(long n) {
+	return new char[10];
+}

@@ -1,0 +1,3 @@
+boolean lexCompare(int a, int b) {
+	return false;
+}

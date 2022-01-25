@@ -1,0 +1,3 @@
+int hIndex(int[] a) {
+	return -1;
+}

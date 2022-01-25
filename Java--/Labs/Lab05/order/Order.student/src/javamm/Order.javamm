@@ -1,0 +1,3 @@
+boolean order(int a, int b, int c, boolean noA) {
+	return noA ? b<c : a<b && b<c;
+}

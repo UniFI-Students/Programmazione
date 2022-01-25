@@ -1,0 +1,3 @@
+double sjf(int[] a) {
+	return 0;
+}

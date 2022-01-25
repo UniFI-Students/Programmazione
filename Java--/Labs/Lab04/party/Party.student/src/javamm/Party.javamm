@@ -1,0 +1,3 @@
+boolean party(int c, boolean s) {
+	return s ? c <=100 : c<=40;
+}

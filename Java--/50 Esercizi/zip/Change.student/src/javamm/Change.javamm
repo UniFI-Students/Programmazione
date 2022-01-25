@@ -1,0 +1,3 @@
+int change(int[] c, int r) {
+	return 0;
+}

@@ -1,0 +1,49 @@
+package javamm;
+
+@SuppressWarnings("all")
+public class traslaMatrice {
+  /**
+   * Scrivere un metodo Java--, chiamato traslaMatrice, che
+   * dato in input una matrice T di numeri interi, di dimensione m x n
+   * (con m>0 e n>0), e un numero intero y, restituisca una nuova matrice
+   * ottenuta applicando alla matrice T una traslazione verticale di y
+   * posizioni.
+   */
+  public static int[][] traslaMatrice(int[][] T, int y) {
+    int n = T.length;
+    int m = T[0].length;
+    y = (y % n);
+    while ((y != 0)) {
+      {
+        if ((y > 0)) {
+          --y;
+          for (int i = (n - 1); (i > 0); --i) {
+            for (int j = 0; (j < m); ++j) {
+              {
+                int tmp = T[(i - 1)][j];
+                T[(i - 1)][j] = T[i][j];
+                T[i][j] = tmp;
+              }
+            }
+          }
+        }
+        if ((y < 0)) {
+          ++y;
+          for (int i = 0; (i < (n - 1)); ++i) {
+            for (int j = 0; (j < m); ++j) {
+              {
+                int tmp = T[(i + 1)][j];
+                T[(i + 1)][j] = T[i][j];
+                T[i][j] = tmp;
+              }
+            }
+          }
+        }
+      }
+    }
+    return T;
+  }
+  
+  public static void main(String[] args) {
+  }
+}

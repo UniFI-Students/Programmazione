@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: SecondaPI.TraslaMatrice.student
+Bundle-ManifestVersion: 2
+Bundle-Name: SecondaPI.TraslaMatrice.student
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: SecondaPI.TraslaMatriceSoluzione.student;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: javamm.runtime,
+ org.junit
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

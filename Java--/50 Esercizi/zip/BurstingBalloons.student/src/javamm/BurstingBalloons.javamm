@@ -1,0 +1,3 @@
+int maxCoins(int[] a) {
+	return 0;
+}

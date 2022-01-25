@@ -1,0 +1,3 @@
+long maximumNumber(int[] a, int k) {
+	return 0;
+}

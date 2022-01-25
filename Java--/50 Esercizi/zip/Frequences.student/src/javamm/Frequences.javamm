@@ -1,0 +1,3 @@
+int[] frequences(int[] a) {
+	return null;
+}

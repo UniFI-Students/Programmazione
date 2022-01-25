@@ -1,0 +1,14 @@
+long duplicateDigit(int n) {
+	long result = 0;
+	long currentFactor = 1;
+	while (n>0)
+	{
+		for (int i=0; i<2; ++i)
+		{
+			result += n%10 * currentFactor;
+			currentFactor*=10;
+		}
+		n/=10;	
+	}
+	return result;
+}

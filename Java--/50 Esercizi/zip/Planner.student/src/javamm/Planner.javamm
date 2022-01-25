@@ -1,0 +1,3 @@
+int plan(int[][] m) {
+	return 0;
+}

@@ -1,0 +1,22 @@
+
+int[][] azzeraAdiacenti(int[][] T, int r, int c) {
+
+	int n = T.length;
+	int m = T[0].length;
+	for (int i=-1; i<=1; ++i)
+	{
+		T[TakeAdjasent(n, r, -1)][TakeAdjasent(m, c, i)] = 0;
+		T[TakeAdjasent(n, r, 1)][TakeAdjasent(m, c, i)] = 0;
+	}	
+	T[r][TakeAdjasent(m, c, -1)] = 0;
+	T[r][TakeAdjasent(m, c, 1)] = 0;
+	return T;	
+}
+
+int TakeAdjasent(int n, int r, int addI)
+{
+	r+=addI;
+	if (r<0) r+=n;
+	r%=n;
+	return r;	
+}

@@ -1,0 +1,58 @@
+int[][] compattaMatrice(int[][] a) {
+
+	int n = a.length;
+	int m = a[0].length;
+
+	int k=0;
+	for (int i=0; i<n; ++i)
+		for (int j=0; j<m; ++j)
+			if (a[i][j] != 0)
+				++k;
+	if (k==0) return null;
+	int[][] res = new int[k][3];
+	int currIndexRes = 0;
+	
+	for (int i=0; i<n; ++i)
+		for (int j=0; j<m; ++j)
+			if (a[i][j] != 0)
+			{
+				res[currIndexRes][0] = a[i][j];
+				res[currIndexRes][1] = i;
+				res[currIndexRes][2] = j;
+				++currIndexRes;
+			}
+	
+	Sort(res, 0, k-1);
+	
+	return res;
+}
+
+
+void Sort(int[][] a, int l, int r)
+{
+	if (l<r)
+	{
+		int pi = Partition(a, l, r);
+		Sort(a, l, pi-1);
+		Sort(a, pi + 1, r);
+	}
+}
+
+int Partition(int[][] a, int l, int h)
+{
+	int[] p = a[h];
+	int i = l - 1;
+	for (int j=l; j<h; ++j)
+	{
+		if (a[j][0] <= p[0])
+		{
+			++i;
+			int[] tmp = a[i];
+			a[i] = a[j];
+			a[j] = tmp;
+		}
+	}
+	a[h] = a[i + 1];	
+	a[i + 1] = p;
+	return i + 1;
+}

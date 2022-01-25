@@ -1,0 +1,38 @@
+
+int contaSottomatrici(int[][] T, int[][] S) {
+	int res = 0;
+	int tN = T.length;
+	int tM = T[0].length;
+	int sN = S.length;
+	int sM = S[0].length;
+	for (int i=0; i<tN - sN + 1; ++i)
+		for (int j=0; j<tM -sM + 1; ++j)
+		{
+			int[][] coppiedT = CreateNew2DArrayFrom(T, i, j, sN, sM);
+			if (Are2DArrayEquals(S, coppiedT)) ++res;
+		}		
+	return res;
+}
+
+
+int[][] CreateNew2DArrayFrom(int[][] T, int startI, int startJ, int newN, int newM)
+{
+	int[][] res = new int[newN][newM];
+	for (int i=0; i<newN; ++i)
+		for (int j=0; j<newM; ++j)
+			res[i][j] = T[startI+i][startJ+j];
+	return res;
+}
+
+
+boolean Are2DArrayEquals(int[][] a, int[][] b)
+{
+	if (a.length != b.length || a[0].length != b[0].length) return false;
+	int n = a.length;
+	int m = a[0].length;
+	for (int i=0; i<n; ++i)
+		for (int j=0; j<m; ++j)
+			if (a[i][j] != b[i][j])
+				return false;
+	return true;
+}

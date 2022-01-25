@@ -1,0 +1,15 @@
+long mmsInSec = 1;
+long mmsInMin = mmsInSec * 60;
+long mmsInHour = mmsInMin * 60;
+long mmsInDay = mmsInHour * 24;
+long mmsInYear = mmsInDay * 365;
+
+long mms = Input.getInt("Input milliseconds: ");
+
+long currSec = mms / mmsInSec;
+long currMin = (mms / mmsInMin) % mmsInMin;
+long currHour = (mms / mmsInHour) % mmsInHour;
+long currDay = (mms / mmsInDay) % mmsInDay;
+long currYear = (mms / mmsInYear) % mmsInYear + 1970;
+
+System.out.println(currHour + ":" + currMin + ":" + currSec + " "+ currDay + "D "+ currYear + "Y");

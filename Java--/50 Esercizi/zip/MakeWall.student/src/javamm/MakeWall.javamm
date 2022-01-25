@@ -1,0 +1,3 @@
+boolean isWallDoable(int s, int b, int g) {
+	return true;
+}

@@ -1,0 +1,32 @@
+int [] occorrenzeCompresso(int [] a) {
+	int n = a.length;
+	int[] res = new int[Max(a) + 1];
+	for (int i=0; i<n; ++i) ++res[a[i]];
+	return ExcludeZerosFromArray(res);
+}
+
+
+int Max(int[] a)
+{
+	int res = -1;
+	int n = a.length;
+	for (int i=0; i<n; ++i) 
+		if (a[i] > res) res = a[i];
+	return res;
+}
+
+int[] ExcludeZerosFromArray(int[] a)
+{
+	int n = a.length;
+	int newN = 0;
+	for (int i=0; i<n; ++i)
+		if (a[i] != 0) ++newN;
+	int[] res = new int[newN];
+	
+	int currIInRes = 0;
+	for (int i=0; i<n; ++i)
+		if (a[i] != 0)
+			res[currIInRes++] = a[i];	
+			
+	return res;
+}

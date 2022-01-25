@@ -1,0 +1,3 @@
+long duplicateDigit(int n) {
+	return 0;
+}

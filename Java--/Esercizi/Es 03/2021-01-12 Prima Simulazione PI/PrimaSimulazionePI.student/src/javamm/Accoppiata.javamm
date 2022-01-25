@@ -1,0 +1,13 @@
+
+boolean accoppiata(char[] a) {
+	if ((a.length&1)==1) return false; // a.length % 2 == 1
+	else return PairArrayWithEvenLengthRecursive(a, 0);
+}
+
+boolean PairArrayWithEvenLengthRecursive(char[] a, int currIndex)
+{
+	int nextIndex = (a.length >> 1) + currIndex; //a.length/2 + currIndex
+	if (nextIndex>=a.length) return true;
+	if (a[currIndex] != a[nextIndex]) return false;
+	else return PairArrayWithEvenLengthRecursive(a, currIndex + 1);
+}

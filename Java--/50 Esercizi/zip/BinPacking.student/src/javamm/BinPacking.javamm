@@ -1,0 +1,3 @@
+int ffd(int[] a, int s) {
+	return 0;
+} 

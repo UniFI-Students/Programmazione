@@ -1,0 +1,51 @@
+boolean cacciaAlTesoro(char[][] M) {
+
+	int n = M.length;
+	int m = M[0].length;
+	char[][] a = new char[M.length][M[0].length];
+	
+	for (int i=0; i<n; ++i)
+		for (int j=0; j<m; ++j)
+		{
+			a[i][j] = M[i][j];
+		}
+	return cacciaAlTesoroRecursivo(a, 0, 0);
+}
+
+
+
+boolean cacciaAlTesoroRecursivo(char[][] map, int currX, int currY)
+{
+	boolean res = false;
+	int n = map.length;
+	int m = map[0].length;
+	char currChar = map[currX][currY];
+	map[currX][currY] = 'V'; //Mark current position on map as it has been visited
+	
+	switch(currChar)
+	{
+		case 'A': res |= cacciaAlTesoroRecursivo(map, DoCircularMove(currX, 0, n - 1, -1), currY); break;
+		case 'B': res |= cacciaAlTesoroRecursivo(map, DoCircularMove(currX, 0, n - 1,  1), currY); break;
+		case 'S': res |= cacciaAlTesoroRecursivo(map, currX, DoCircularMove(currY, 0, m - 1, -1)); break;
+		case 'D': res |= cacciaAlTesoroRecursivo(map, currX, DoCircularMove(currY, 0, m - 1,  1)); break; 
+		case 'X': res |= true; break;
+		case 'T': res |= false; break;
+		case '?':
+		{
+			res |= cacciaAlTesoroRecursivo(map, DoCircularMove(currX, 0, n - 1, -1), currY);
+			res |= cacciaAlTesoroRecursivo(map, DoCircularMove(currX, 0, n - 1,  1), currY);
+			res |= cacciaAlTesoroRecursivo(map, currX, DoCircularMove(currY, 0, m - 1, -1));
+		 	res |= cacciaAlTesoroRecursivo(map, currX, DoCircularMove(currY, 0, m - 1, 1));
+		 	break;
+		}
+	}
+	return res;
+}
+
+int DoCircularMove(int x, int left, int right, int moveBy)
+{
+	x=x+(moveBy%(right + 1));
+	if (x < left) x += right + 1;
+	x%=right + 1;
+	return x;
+}
